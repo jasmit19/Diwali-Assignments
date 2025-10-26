@@ -20,9 +20,9 @@ public class StudentDaoImpl implements StudentDao {
         if (f.exists()) {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fname))) {
                 studentList = (List<Student>) ois.readObject(); 
-                System.out.println("✅ Data loaded: " + studentList.size() + " students.");
+                System.out.println(" Data loaded: " + studentList.size() + " students.");
             } catch (IOException | ClassNotFoundException e) {
-                System.err.println("❌ Error loading data: " + e.getMessage());
+                System.err.println(" Error loading data: " + e.getMessage());
             }
         }
     }
@@ -31,9 +31,9 @@ public class StudentDaoImpl implements StudentDao {
     public void writeData(String fname) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fname))) {
             oos.writeObject(studentList);
-            System.out.println("✅ Data saved successfully to " + fname);
+            System.out.println(" Data saved successfully to " + fname);
         } catch (IOException e) {
-            System.err.println("❌ Error saving data: " + e.getMessage());
+            System.err.println(" Error saving data: " + e.getMessage());
         }
     }
 
